@@ -72,4 +72,7 @@ class RugbyMatch:
 
         team_stats = topics[1]
         team_stats = team_stats['teams']
+        for team in range(len(team_stats)):
+            display_name = team_stats[team]['abbreviatedName'][:3].upper()
+            team_stats[team]['displayName'] = display_name
         self.team_stats = team_stats

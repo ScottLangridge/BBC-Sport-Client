@@ -1,7 +1,9 @@
 import sys
+
 sys.path.insert(1, 'lib')
 from waveshare_epd import epd2in9
-from PIL import Image,ImageDraw,ImageFont
+from PIL import Image, ImageDraw, ImageFont
+
 
 class DisplayController:
     def __init__(self):
@@ -14,8 +16,7 @@ class DisplayController:
 
         self.font = ImageFont.truetype('Font.ttc', 36)
 
-
-    def display_txt(self, msg, centred = True):
+    def display_txt(self, msg, centred=True):
         h_image = Image.new('1', (self.epd.height, self.epd.width), 255)
         draw = ImageDraw.Draw(h_image)
         text_size = draw.textsize(msg, self.font)
@@ -26,8 +27,7 @@ class DisplayController:
         else:
             x = 0
             y = 0
-    
-        draw.text((x,y), msg, font = self.font, fill = 0)
+
+        draw.text((x, y), msg, font=self.font, fill=0)
 
         self.epd.display(self.epd.getbuffer(h_image))
-
