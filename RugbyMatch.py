@@ -57,6 +57,7 @@ class RugbyMatch:
         # Get JSON
         request_url = self._JSON_URL_TEMPLATE % (self._match_id, self._tokens[0], self._match_id, self._tokens[1])
         r = requests.get(request_url)
+        print("Get request made.")
 
         if r.text == self._EMPTY_RETURN:
             request_url = self._JSON_URL_TEMPLATE % (self._match_id, self._tokens[1], self._match_id, self._tokens[0])
