@@ -28,6 +28,6 @@ class DisplayController:
             x = 0
             y = 0
 
-        draw.text((x, y), msg, font=self.font, fill=0)
+        draw.text((x, y), msg, align='center', font=self.font)
 
         self.epd.display(self.epd.getbuffer(h_image))
